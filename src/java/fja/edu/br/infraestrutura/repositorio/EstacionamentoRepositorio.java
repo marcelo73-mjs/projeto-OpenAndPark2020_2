@@ -18,16 +18,16 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
     @Override
     public boolean incluir(Estacionamento estacionamento) {
          String sql = "INSERT INTO estacionamento(nome,horario_abertura,horario_fechamento,email,logradouro,numero,bloco,bairro,CEP)"
-               + "values(?,?,?,?,?,?,?,?)";
-        int ret = 0;
+               + "values(?,?,?,?,?,?,?,?,?)";
+        int ret = -1;
         
         PreparedStatement ps;
         
         try {
-            ps=getPreparedStatement(sql);
+            ps=super.getPreparedStatement(sql);
             ps.setString(1,estacionamento.getNome_estacionamento());
-            ps.setTime(2, estacionamento.getHorarioabertura());
-            ps.setTime(3,estacionamento.getHorariofechamento());
+            ps.setDate(2, new java.sql.Date(estacionamento.getHorarioabertura().getTime()));
+            ps.setDate(3,new java.sql.Date(estacionamento.getHorariofechamento().getTime()));
             ps.setString(4, estacionamento.getEmail());
             ps.setString(5, estacionamento.getLogradouro());
             ps.setInt(6, estacionamento.getNumero());
@@ -51,15 +51,15 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
          String sql = "UPDATE SET estacionamento nome=?,horario_abertura=?,horario_fechamento=?,"
                  + "email=?,logradouro=?,numero=?,bloco=?,bairro=?,CEP=?)"
                  +"WHERE idEstaciopnamento";
-        int ret = 0;
+        int ret = -1;
         
         PreparedStatement ps;
         
         try {
             ps=getPreparedStatement(sql);
             ps.setString(1,estacionamento.getNome_estacionamento());
-            ps.setTime(2, estacionamento.getHorarioabertura());
-            ps.setTime(3,estacionamento.getHorariofechamento());
+            ps.setDate(2, new java.sql.Date(estacionamento.getHorarioabertura().getTime()));
+            ps.setDate(3,new java.sql.Date(estacionamento.getHorariofechamento().getTime()));
             ps.setString(4, estacionamento.getEmail());
             ps.setString(5, estacionamento.getLogradouro());
             ps.setInt(6, estacionamento.getNumero());
@@ -82,7 +82,7 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
     public boolean deletarPorId(int idestacionamento) {
         String sql = "DELETE FROM estacionamento(idEstacionamento)"
                + "values(?)";
-        int ret = 0;
+        int ret = -1;
         
         PreparedStatement ps;
         
@@ -116,12 +116,12 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
             ResultSet rs= ps.executeQuery();
             
             while(rs.next()){ 
-             ps.setTime(2, new java.sql.Time(est.getHorarioabertura().getTime()));
-             ps.setTime(3, new java.sql.Time(est.getHorariofechamento().getTime()));
+             ps.setDate(2, new java.sql.Date(est.getHorarioabertura().getTime()));
+             ps.setDate(3,new java.sql.Date(est.getHorariofechamento().getTime()));;
                 est = new Estacionamento (rs.getInt("id_estacionamento"),
                         rs.getString("nome"),
-                        rs.getTime("horario_abertura"),
-                        rs.getTime("horario_fechamento"),
+                        rs.getDate("horario_abertura"),
+                        rs.getDate("horario_fechamento"),
                         rs.getString("email"),
                         rs.getString("logradouro"),
                         rs.getInt("numero"),
@@ -156,8 +156,8 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
             
                listaEstacionamento.add(new Estacionamento  (rs.getInt("id_estacionamento"),
                         rs.getString("nome"),
-                        rs.getTime("horario_abertura"),
-                        rs.getTime("horario_fechamento"),
+                        rs.getDate("horario_abertura"),
+                        rs.getDate("horario_fechamento"),
                         rs.getString("email"),
                         rs.getString("logradouro"),
                         rs.getInt("numero"),

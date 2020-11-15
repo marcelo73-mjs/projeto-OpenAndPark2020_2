@@ -1,0 +1,139 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <h:head>
+        <title>Lista Estacionamento</title>
+        <link rel="stylesheet" href="cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></link>
+        <link rel="stylesheet" href="bootstrap.min.css"
+              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+              crossorigin="anonymous"/>
+        <link rel="stylesheet " type="text/css" href="style.css"/>
+
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>LISTAGEM DOS ESTACIONAMENTOS CADASTRADOS</h1>
+            <h:commandButton value="Voltar" style="width: 80%" action="voltaParaIndex" />
+            <h:commandButton value="Novo Estacionamento" style="width: 80%" action="#{estacionamentoController.preparaInclusao()}"/>
+            
+            <br/>
+
+                <h:dataTable
+
+                    var="umEstacionamento" 
+                    value="#{estacionamentoController.listaEstacionamento}"
+                    border="1"
+                    rowClasses="azul,verde">
+
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="CÓDIGO"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.idestacionamento}"/> <!--pegando 1 produto da lista -->
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="NOME"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.nome_estacionamento}"/> <!--pegando 1 produto da lista -->
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="HORÁRIO DE ABERTURA"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.horarioabertura}"> <!--pegando 1 produto da lista -->
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </h:outputLabel>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="HORÁRIO DE FECHAMENTO"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.horariofechamento}"> <!--pegando 1 produto da lista -->
+                            <f:convertDateTime pattern="dd/MM/yyyy"/> <!-- convertendo a data-->
+                        </h:outputLabel>
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> 
+                            <h:outputLabel value="EMAIL"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.email}"/> 
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header"> 
+                            <h:outputLabel value="LOGRADOURO"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.logradouro}"/> 
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header"> 
+                            <h:outputLabel value="NÚMERO"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.numero}"/> ta -->
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="BAIRRO"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.bairro}"/> <!--pegando 1 produto da lista -->
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="CEP"/>
+                        </f:facet>
+                        <h:outputLabel value="#{umEstacionamento.cep}"/> <!--pegando 1 produto da lista -->
+                    </h:column>
+
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="CIDADE"/>
+                        </f:facet>
+                        <h:outputLabel value="#{cidadeController.cidade.cidade}"/> <!--pegando 1 produto da lista -->
+                    </h:column>
+                    
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="UF"/>
+                        </f:facet>
+                        <h:outputLabel value="#{cidadeController.cidade.UF}"/> <!--pegando 1 produto da lista -->
+                    </h:column>
+
+
+                    <h:column>
+                        <f:facet name="header"> <!--cabeçalho unico Codigo -->
+                            <h:outputLabel value="AÇÃO"/>
+                        </f:facet>
+                        <h:commandLink value="Detalhe" action="vaiParaDetalhe"> <!--COMANDO HTML PRIMEIRO EXECUTA O MAIS INTERNO  -->
+                            <f:setPropertyActionListener target="#{estacionamentoController.estacionamento}" value="#{umEstacionamento}"/>
+                        </h:commandLink>
+
+                        <h:outputLabel value="|"/>
+
+                        <h:commandLink value="Editar" action="vaiParaEditar"> 
+                            <f:setPropertyActionListener target="#{estacionamentoController.estacionamento}" value="#{umEstacionamento}"/>
+                        </h:commandLink>
+                       
+                        <h:outputLabel value="|"/>
+
+                        <h:commandLink value="deletar" action="#{estacionamentoController.finalizaDelecao()}">
+                            <f:setPropertyActionListener target="#{estacionamentoController.estacionamento}" value="#{umEstacionamento}"/>
+                        </h:commandLink>
+
+                    </h:column>
+
+                </h:dataTable>
+        </h:form>
+    </h:body>
+</html>
+

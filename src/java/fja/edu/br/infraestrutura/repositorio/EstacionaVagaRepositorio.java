@@ -155,9 +155,7 @@ public class EstacionaVagaRepositorio extends DaoUtil implements IEstacionaVaga{
             rs.close();
             
             
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(EstacionaVagaRepositorio.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (SQLException ex) {
+        } catch (ClassNotFoundException | SQLException ex) {
             Logger.getLogger(EstacionaVagaRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
         

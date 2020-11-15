@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
-public class ComonetarioRepositorio extends DaoUtil implements IComentario{
+public class ComentarioRepositorio extends DaoUtil implements IComentario{
 
     @Override
     public boolean incluir(Comentario comentario) {
@@ -35,7 +35,7 @@ public class ComonetarioRepositorio extends DaoUtil implements IComentario{
             ps.close();
           
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ComonetarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComentarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -68,7 +68,7 @@ public class ComonetarioRepositorio extends DaoUtil implements IComentario{
             ps.close();
           
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ComonetarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComentarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
      
         
@@ -92,7 +92,7 @@ public class ComonetarioRepositorio extends DaoUtil implements IComentario{
             ps.close();
           
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ComonetarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComentarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
      
         
@@ -128,7 +128,7 @@ public class ComonetarioRepositorio extends DaoUtil implements IComentario{
             
             
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ComonetarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComentarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
        
        
@@ -165,7 +165,7 @@ public class ComonetarioRepositorio extends DaoUtil implements IComentario{
             rs.close();
             
         } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ComonetarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ComentarioRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
        
        

@@ -19,7 +19,7 @@ public class ClienteRepositorio extends DaoUtil implements ICliente{
     public boolean incluir(Cliente cliente) {
        String sql = "INSERT INTO cliente(nome,sobrenome,CPF,email,logradouro,bairro,numero,CEP)"
                + "values(?,?,?,?,?,?,?,?)";
-        int ret = 0;
+        int ret = -1;
         
         PreparedStatement ps;
         
@@ -50,9 +50,9 @@ public class ClienteRepositorio extends DaoUtil implements ICliente{
     @Override
     public boolean editar(Cliente cliente) {
         String sql = "UPDADTE SET cliente nome=?,sobrenome=?,CPF=?,email=?,logradouro=?,"
-                + "bairro=?,numero=?,CEP=? WHERE=idCliente=? ";
+                + "bairro=?,numero=?,CEP=? WHERE idCliente=? ";
       
-        int ret = 0;
+        int ret = -1;
         
         PreparedStatement ps;
         
@@ -84,7 +84,7 @@ public class ClienteRepositorio extends DaoUtil implements ICliente{
     public boolean deletarPorId(int idcliente) {
         String sql = "DELETE FROM cliente(idCliente)"
                + "values(?)";
-        int ret = 0;
+        int ret = -1;
         
         PreparedStatement ps;
         
@@ -110,7 +110,7 @@ public class ClienteRepositorio extends DaoUtil implements ICliente{
     @Override
     public Cliente getConsultaPorId(int idcliente) {
         Cliente cli = new Cliente();
-        String sql= "SELECT idCliente,nome,sobrenome, CPF, email,logradouro,bairro,numero,bloco,CEP FROM cliente WHERE idCliente=?";
+        String sql= "SELECT idCliente,nome,sobrenome, CPF, email,logradouro,bairro,numero,bloco,CEP WHERE idCliente=?";
         PreparedStatement ps;
         try {
             ps=super.getPreparedStatement(sql);

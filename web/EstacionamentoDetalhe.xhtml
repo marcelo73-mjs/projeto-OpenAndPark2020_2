@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <title>Detalhe do Estacionamento</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <h1>DETALHE DO ESTACIONAMENTO</h1>
+            <table border="1">
+                <tr>
+                    <td> <h:outputLabel value="CÓDIGO"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.idestacionamento}"</td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="NOME"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.nome_estacionamento}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="HORÁRIO ABERTURA"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.horarioabertura}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="HORÁRIO FECHAMENTO"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.horariofechamento}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="EMAIL"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.email}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="LOGRADOURO"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.logradouro}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="NÚMERO"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.numero}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="BAIRRO"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.bairro}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="CEP"/></td>
+                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.cep}"/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="CIDADE"/></td>
+                    <td><h:outputLabel value=""/></td>
+                </tr>
+                <tr>
+                    <td><h:outputLabel value="UF"/></td>
+                    <td><h:outputLabel value=""/></td>
+                </tr>
+            </table>
+            <h:commandButton value="VOLTAR" style="width: 48%" action="voltaParaListagem"/>
+            <h:commandButton value="EDITAR" style="width: 48%" action="vaiParaEditar"/>
+        </h:form>
+    </h:body>
+</html>
+

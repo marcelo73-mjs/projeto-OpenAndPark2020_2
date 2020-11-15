@@ -6,16 +6,19 @@ public class Login {
     private int idlogin;
     private String usuario;
     private String senha;
+    private String email;
 
     public Login() {
     }
 
-    public Login(int idlogin, String usuario, String senha) {
+    public Login(int idlogin, String usuario, String senha, String email) {
         this.idlogin = idlogin;
         this.usuario = usuario;
         this.senha = senha;
+        this.email = email;
     }
 
+   
     public Login(int idlogin) {
         this.idlogin = idlogin;
     }
@@ -44,6 +47,11 @@ public class Login {
         this.senha = senha;
     }
     
-    
+    public String getEmail(){
+        return this.email;
+    }
+    public void setEmail(String email){
+        this.email=email;
+    }
     
 }

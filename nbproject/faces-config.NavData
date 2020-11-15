@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="informacoes.xhtml" x="69" y="-99" zoom="true"/>
+        <Node id="index.xhtml" x="362" y="-453" zoom="true"/>
+        <Node id="EstacionamentoEditar.xhtml" x="408" y="198" zoom="false"/>
+        <Node id="EstacionamentoIncluir.xhtml" x="72" y="196" zoom="true"/>
+        <Node id="EstacionamentoListagem.xhtml" x="547" y="-113" zoom="true"/>
+        <Node id="EstacionamentoDetalhe.xhtml" x="723" y="200" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>
