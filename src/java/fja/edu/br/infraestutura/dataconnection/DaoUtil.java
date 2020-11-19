@@ -17,14 +17,17 @@ public abstract class DaoUtil { //Ninguem pode instacionar, apenas herdar!
             String psw ="Adeni2308";
             String usr ="root";
             String drv ="com.mysql.jdbc.Driver";
-            
+           
+           
             Class.forName(drv);
             
             cx= DriverManager.getConnection(url,usr,psw);
         }
          return cx;
+      
+ 
     }
-
+   
     public void getfechaConnection() throws SQLException{
         if(cx!= null){
             this.cx.close();
@@ -38,4 +41,5 @@ public abstract class DaoUtil { //Ninguem pode instacionar, apenas herdar!
         return this.getConnection().prepareStatement(sql);
         
     }
+    
 }

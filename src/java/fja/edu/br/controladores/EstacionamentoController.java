@@ -46,7 +46,7 @@ public class EstacionamentoController {
     public String finalizaEdicao(){
         estRepositorio.editar(estacionamento);
         listaEstacionamento=null;
-        return "vaiParaListagem";
+        return "voltaParaListagem";
         
     }
         public String finalizaDelecao(){

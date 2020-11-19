@@ -4,58 +4,65 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html">
     <h:head>
         <title>Detalhe do Estacionamento</title>
+       <link rel="stylesheet" href="cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css"></link>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+              integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+              crossorigin="anonymous"/>
+         <link rel="stylesheet " type="text/css" href="style.css"/>
     </h:head>
     <h:body>
         <h:form>
-            <h1>DETALHE DO ESTACIONAMENTO</h1>
-            <table border="1">
+            <h1 class="titulo" >DETALHE DO ESTACIONAMENTO</h1>
+             <table class="table" 
+                  
+                    rowClasses= "cinza-fraco, cinza-forte">
+                     
+                   
+               
                 <tr>
-                    <td> <h:outputLabel value="CÓDIGO"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.idestacionamento}"</td>
+                    <td> <h:outputLabel class="form-control" value="CÓDIGO"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.idestacionamento}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="NOME"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.nome_estacionamento}"/></td>
+                    <td><h:outputLabel class="form-control" value="NOME"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.nome_estacionamento}"/></td>
+                </tr>
+                
+                <tr>
+                    <td><h:outputLabel class="form-control" value="EMAIL"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.email}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="HORÁRIO ABERTURA"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.horarioabertura}"/></td>
+                    <td><h:outputLabel class="form-control" value="LOGRADOURO"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.logradouro}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="HORÁRIO FECHAMENTO"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.horariofechamento}"/></td>
+                    <td><h:outputLabel class="form-control" value="NÚMERO"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.numero}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="EMAIL"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.email}"/></td>
+                    <td><h:outputLabel class="form-control" value="BLOCO"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.bloco}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="LOGRADOURO"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.logradouro}"/></td>
+                    <td><h:outputLabel class="form-control" value="BAIRRO"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.bairro}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="NÚMERO"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.numero}"/></td>
+                    <td><h:outputLabel class="form-control" value="CEP"/></td>
+                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.cep}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="BAIRRO"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.bairro}"/></td>
+                    <td><h:outputLabel class="form-control" value="CIDADE"/></td>
+                    <td><h:outputLabel class="form-control" value="#{cidadeController.cidade.cidade}"/></td>
                 </tr>
                 <tr>
-                    <td><h:outputLabel value="CEP"/></td>
-                    <td><h:outputLabel value="#{estacionamentoController.estacionamento.cep}"/></td>
+                    <td><h:outputLabel class="form-control" value="UF"/></td>
+                    <td><h:outputLabel class="form-control" value="#{cidadeController.cidade.UF}"/></td>
                 </tr>
-                <tr>
-                    <td><h:outputLabel value="CIDADE"/></td>
-                    <td><h:outputLabel value=""/></td>
-                </tr>
-                <tr>
-                    <td><h:outputLabel value="UF"/></td>
-                    <td><h:outputLabel value=""/></td>
-                </tr>
-            </table>
-            <h:commandButton value="VOLTAR" style="width: 48%" action="voltaParaListagem"/>
-            <h:commandButton value="EDITAR" style="width: 48%" action="vaiParaEditar"/>
+             </table>
+            <h:commandButton class ="btn btn-success" value="VOLTAR" style="width: 48%" action="voltaParaListagem"/>
+            <h:commandButton class ="btn btn-success" value="EDITAR" style="width: 48%" action="vaiParaEditar"/>
         </h:form>
     </h:body>
 </html>

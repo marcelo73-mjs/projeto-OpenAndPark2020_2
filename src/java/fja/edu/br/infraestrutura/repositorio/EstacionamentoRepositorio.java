@@ -15,25 +15,28 @@ import java.util.logging.Logger;
 
 public class EstacionamentoRepositorio extends DaoUtil implements IEstacionamento {
 
+    public EstacionamentoRepositorio() {
+        super();
+    }
+    
+
     @Override
     public boolean incluir(Estacionamento estacionamento) {
-         String sql = "INSERT INTO estacionamento(nome,horario_abertura,horario_fechamento,email,logradouro,numero,bloco,bairro,CEP)"
-               + "values(?,?,?,?,?,?,?,?,?)";
-        int ret = -1;
-        
+         String sql = "INSERT INTO estacionamento(nome,email,logradouro,numero,bloco,bairro,CEP)"
+               + "values(?,?,?,?,?,?,?)";
         PreparedStatement ps;
+        int ret = -1;
         
         try {
             ps=super.getPreparedStatement(sql);
+           
             ps.setString(1,estacionamento.getNome_estacionamento());
-            ps.setDate(2, new java.sql.Date(estacionamento.getHorarioabertura().getTime()));
-            ps.setDate(3,new java.sql.Date(estacionamento.getHorariofechamento().getTime()));
-            ps.setString(4, estacionamento.getEmail());
-            ps.setString(5, estacionamento.getLogradouro());
-            ps.setInt(6, estacionamento.getNumero());
-            ps.setString(7, estacionamento.getBloco());
-            ps.setString(8, estacionamento.getBairro());
-            ps.setString(9, estacionamento.getCep());
+            ps.setString(2, estacionamento.getEmail());
+            ps.setString(3, estacionamento.getLogradouro());
+            ps.setInt(4, estacionamento.getNumero());
+            ps.setString(5, estacionamento.getBloco());
+            ps.setString(6, estacionamento.getBairro());
+            ps.setString(7, estacionamento.getCep());
             
             ret=ps.executeUpdate();
             ps.close();
@@ -48,8 +51,7 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
 
     @Override
     public boolean editar(Estacionamento estacionamento) {
-         String sql = "UPDATE SET estacionamento nome=?,horario_abertura=?,horario_fechamento=?,"
-                 + "email=?,logradouro=?,numero=?,bloco=?,bairro=?,CEP=?)"
+         String sql = "UPDATE SET estacionamento nome=?,email=?,logradouro=?,numero=?,bloco=?,bairro=?,CEP=?)"
                  +"WHERE idEstaciopnamento";
         int ret = -1;
         
@@ -58,14 +60,12 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
         try {
             ps=getPreparedStatement(sql);
             ps.setString(1,estacionamento.getNome_estacionamento());
-            ps.setDate(2, new java.sql.Date(estacionamento.getHorarioabertura().getTime()));
-            ps.setDate(3,new java.sql.Date(estacionamento.getHorariofechamento().getTime()));
-            ps.setString(4, estacionamento.getEmail());
-            ps.setString(5, estacionamento.getLogradouro());
-            ps.setInt(6, estacionamento.getNumero());
-            ps.setString(7, estacionamento.getBloco());
-            ps.setString(8, estacionamento.getBairro());
-            ps.setString(9, estacionamento.getCep());
+            ps.setString(2, estacionamento.getEmail());
+            ps.setString(3, estacionamento.getLogradouro());
+            ps.setInt(4, estacionamento.getNumero());
+            ps.setString(5, estacionamento.getBloco());
+            ps.setString(6, estacionamento.getBairro());
+            ps.setString(7, estacionamento.getCep());
             
             ret=ps.executeUpdate();
             ps.close();
@@ -107,7 +107,7 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
     @Override
     public Estacionamento getConsultaPorId(int idestacionamento) {
         Estacionamento est = new Estacionamento();
-        String sql= "SELECT id_estacionamento,nome,horario_abertura, horario_fechamento, email,logradouro,numero,bloco,bairro,CEP "
+        String sql= "SELECT id_estacionamento,nome,email,logradouro,numero,bloco,bairro,CEP "
                 + "FROM estacionamento WHERE idEstacionamento=?";
         PreparedStatement ps;
         try {
@@ -115,13 +115,9 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
             ps.setInt(1, idestacionamento);
             ResultSet rs= ps.executeQuery();
             
-            while(rs.next()){ 
-             ps.setDate(2, new java.sql.Date(est.getHorarioabertura().getTime()));
-             ps.setDate(3,new java.sql.Date(est.getHorariofechamento().getTime()));;
+            while(rs.next()){
                 est = new Estacionamento (rs.getInt("id_estacionamento"),
                         rs.getString("nome"),
-                        rs.getDate("horario_abertura"),
-                        rs.getDate("horario_fechamento"),
                         rs.getString("email"),
                         rs.getString("logradouro"),
                         rs.getInt("numero"),
@@ -145,7 +141,7 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
     @Override
     public List<Estacionamento> getListaTodosEstacionamentos() {
         List<Estacionamento>listaEstacionamento = new LinkedList();
-        String sql= "SELECT id_estacionamento,nome,horario_abertura, horario_fechamento, email,logradouro,numero,bloco,bairro,CEP "
+        String sql= "SELECT id_estacionamento,nome, email,logradouro,numero,bloco,bairro,CEP "
                 + "FROM estacionamento ";
         PreparedStatement ps;
         try {
@@ -156,8 +152,6 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
             
                listaEstacionamento.add(new Estacionamento  (rs.getInt("id_estacionamento"),
                         rs.getString("nome"),
-                        rs.getDate("horario_abertura"),
-                        rs.getDate("horario_fechamento"),
                         rs.getString("email"),
                         rs.getString("logradouro"),
                         rs.getInt("numero"),
