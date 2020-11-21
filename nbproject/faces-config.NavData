@@ -2,12 +2,13 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="informacoes.xhtml" x="69" y="-99" zoom="true"/>
+        <Node id="informacoes.xhtml" x="81" y="-307" zoom="true"/>
         <Node id="index.xhtml" x="362" y="-453" zoom="true"/>
-        <Node id="EstacionamentoEditar.xhtml" x="408" y="198" zoom="false"/>
-        <Node id="EstacionamentoIncluir.xhtml" x="72" y="196" zoom="true"/>
-        <Node id="EstacionamentoDetalhe.xhtml" x="723" y="200" zoom="true"/>
-        <Node id="EstacionamentoListagem.xhtml" x="547" y="-113" zoom="true"/>
+        <Node id="EstacionamentoEditar.xhtml" x="502" y="-140" zoom="false"/>
+        <Node id="loginAdminIncluir.xhtml" x="33" y="-183" zoom="true"/>
+        <Node id="EstacionamentoIncluir.xhtml" x="317" y="-169" zoom="true"/>
+        <Node id="EstacionamentoListagem.xhtml" x="543" y="-306" zoom="true"/>
+        <Node id="EstacionamentoDetalhe.xhtml" x="608" y="-169" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

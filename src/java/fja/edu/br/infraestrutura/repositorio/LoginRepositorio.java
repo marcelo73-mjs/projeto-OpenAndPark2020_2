@@ -32,8 +32,10 @@ public class LoginRepositorio extends DaoUtil implements ILogin {
             ps.setString(3, login.getEmail());
             
             ps.close();
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(LoginRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return ret >0;
@@ -41,7 +43,7 @@ public class LoginRepositorio extends DaoUtil implements ILogin {
 
     @Override
     public boolean editar(Login login) {
-       String sql ="UPDATE usuario=?,senha=?,email=? WHERE id_login = ? ";
+       String sql ="UPDATE login SET usuario=?,senha=?,email=? WHERE id_login =? ";
        int ret = -1;
        PreparedStatement ps;
         try {
@@ -51,8 +53,11 @@ public class LoginRepositorio extends DaoUtil implements ILogin {
             ps.setString(3, login.getEmail());
             ret=ps.executeUpdate();
             ps.close();
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(LoginRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
        
        return ret >0;
@@ -69,9 +74,12 @@ public class LoginRepositorio extends DaoUtil implements ILogin {
             
             ret=ps.executeUpdate();
             ps.close();
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(LoginRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
         
         
         return ret >0;
@@ -100,8 +108,10 @@ public class LoginRepositorio extends DaoUtil implements ILogin {
             }
             
             
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(LoginRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return login;
@@ -126,8 +136,10 @@ public class LoginRepositorio extends DaoUtil implements ILogin {
                 ));
             }
             ps.close();
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(LoginRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
          
         

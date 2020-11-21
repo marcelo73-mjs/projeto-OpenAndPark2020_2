@@ -36,16 +36,24 @@
                         <td><h:inputText class="form-control" value="#{estacionamentoController.estacionamento.numero}" maxlength="5" size="40"/></td>
                     </tr>
                     <tr>
-                    <td><h:outputLabel class="form-control" value="BLOCO"/></td>
-                    <td><h:outputLabel class="form-control" value="#{estacionamentoController.estacionamento.numero}"/></td>
-                </tr>
+                        <td><h:outputLabel class="form-control" value="BLOCO"/></td>
+                        <td><h:inputText class="form-control" value="#{estacionamentoController.estacionamento.bloco}" maxlength="5" size="40"/></td>
+                    </tr>
                     <tr>
                         <td><h:outputLabel class="form-control" value="BAIRRO:" /></td>
                         <td><h:inputText class="form-control" value="#{estacionamentoController.estacionamento.bairro}" maxlength="255" size="80"/></td>
                     </tr>
                     <tr>
                         <td><h:outputLabel class="form-control" value="CEP:" /></td>
-                        <td><h:inputText class="form-control" value="#{estacionamentoController.estacionamento.cep}" maxlength="11" size="40"/></td>
+                        <td><h:inputText class="form-control" value="#{estacionamentoController.estacionamento.cep}" maxlength="12" size="40"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel class="form-control" value="CIDADE:" /></td>
+                        <td><h:inputText class="form-control" value="#{estacionamentoController.estacionamento.cidade}" maxlength="255" size="80"/></td>
+                    </tr>
+                    <tr>
+                        <td><h:outputLabel class="form-control" value="UF:" /></td>
+                        <td><h:inputText class="form-control" value="#{estacionamentoController.estacionamento.uf}" maxlength="12" size="40"/></td>
                     </tr>
                 </tbody>
             </table>

@@ -10,11 +10,13 @@ public class Estacionamento {
     private String bloco;
     private String bairro;
     private String cep;
+    private String cidade;
+    private String uf;
 
     public Estacionamento() {
     }
 
-    public Estacionamento(int idestacionamento, String nome_estacionamento, String email, String logradouro, int numero, String bloco, String bairro, String cep) {
+    public Estacionamento(int idestacionamento, String nome_estacionamento, String email, String logradouro, int numero, String bloco, String bairro, String cep, String cidade, String uf) {
         this.idestacionamento = idestacionamento;
         this.nome_estacionamento = nome_estacionamento;
         this.email = email;
@@ -23,9 +25,9 @@ public class Estacionamento {
         this.bloco = bloco;
         this.bairro = bairro;
         this.cep = cep;
+        this.cidade = cidade;
+        this.uf = uf;
     }
-
-    
 
     public Estacionamento(int idestacionamento) {
         this.idestacionamento = idestacionamento;
@@ -95,7 +97,22 @@ public class Estacionamento {
         this.cep = cep;
     }
 
-  
+    public String getCidade() {
+        return cidade;
+    }
 
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+
+ 
    
 }

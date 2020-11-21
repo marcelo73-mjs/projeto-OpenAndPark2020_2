@@ -22,8 +22,9 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
 
     @Override
     public boolean incluir(Estacionamento estacionamento) {
-         String sql = "INSERT INTO estacionamento(nome,email,logradouro,numero,bloco,bairro,CEP)"
-               + "values(?,?,?,?,?,?,?)";
+         String sql = "INSERT INTO estacionamento (nome,email,logradouro,numero," +
+                      "bloco,bairro,CEP,cidade,UF)VALUES(?,?,?,?,?,?,?,?,?)";
+         
         PreparedStatement ps;
         int ret = -1;
         
@@ -37,12 +38,16 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
             ps.setString(5, estacionamento.getBloco());
             ps.setString(6, estacionamento.getBairro());
             ps.setString(7, estacionamento.getCep());
+            ps.setString(8, estacionamento.getCidade());
+            ps.setString(9, estacionamento.getUf());
             
             ret=ps.executeUpdate();
             ps.close();
           
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ClienteRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        }catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -51,8 +56,8 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
 
     @Override
     public boolean editar(Estacionamento estacionamento) {
-         String sql = "UPDATE SET estacionamento nome=?,email=?,logradouro=?,numero=?,bloco=?,bairro=?,CEP=?)"
-                 +"WHERE idEstaciopnamento";
+         String sql = "UPDATE estacionamento SET nome = ?, email = ?,logradouro = ?,numero = ?, "
+                 + "bloco = ?,bairro = ?,CEP = ?,cidade = ?,UF = ? WHERE id_estacionamento = ?";
         int ret = -1;
         
         PreparedStatement ps;
@@ -66,12 +71,17 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
             ps.setString(5, estacionamento.getBloco());
             ps.setString(6, estacionamento.getBairro());
             ps.setString(7, estacionamento.getCep());
+            ps.setString(8, estacionamento.getCidade());
+            ps.setString(9, estacionamento.getUf());
+            ps.setInt(10, estacionamento.getIdestacionamento());
             
             ret=ps.executeUpdate();
             ps.close();
           
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ClienteRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -80,22 +90,20 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
 
     @Override
     public boolean deletarPorId(int idestacionamento) {
-        String sql = "DELETE FROM estacionamento(idEstacionamento)"
-               + "values(?)";
-        int ret = -1;
-        
+        String sql = "DELETE FROM estacionamento WHERE id_estacionamento =?";
         PreparedStatement ps;
+        int ret = -1;   
         
         try {
             ps=getPreparedStatement(sql);
             ps.setInt(1, idestacionamento);
-         
-            
             ret=ps.executeUpdate();
             ps.close();
           
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ClienteRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         
@@ -107,8 +115,8 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
     @Override
     public Estacionamento getConsultaPorId(int idestacionamento) {
         Estacionamento est = new Estacionamento();
-        String sql= "SELECT id_estacionamento,nome,email,logradouro,numero,bloco,bairro,CEP "
-                + "FROM estacionamento WHERE idEstacionamento=?";
+        String sql= "SELECT id_estacionamento,nome,email,logradouro,numero,bloco,bairro,CEP,cidade,UF "
+                + "FROM estacionamento WHERE id_estacionamento=?";
         PreparedStatement ps;
         try {
             ps=super.getPreparedStatement(sql);
@@ -121,9 +129,11 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
                         rs.getString("email"),
                         rs.getString("logradouro"),
                         rs.getInt("numero"),
-                        rs.getString("bairro"),
                         rs.getString("bloco"),
-                        rs.getString("CEP")
+                        rs.getString("bairro"),
+                        rs.getString("CEP"),
+                        rs.getString("cidade"),
+                        rs.getString("UF")
                      
                 );
                
@@ -131,9 +141,10 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
              rs.close(); //Result do java
              ps.close(); // Prepared do banco
           
-            
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ClienteRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
       return est; //Aqui eu so 
     }
@@ -141,8 +152,8 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
     @Override
     public List<Estacionamento> getListaTodosEstacionamentos() {
         List<Estacionamento>listaEstacionamento = new LinkedList();
-        String sql= "SELECT id_estacionamento,nome, email,logradouro,numero,bloco,bairro,CEP "
-                + "FROM estacionamento ";
+        String sql= "SELECT id_estacionamento ,nome,email,logradouro,numero,bloco,bairro,CEP,cidade,UF "
+                + "FROM estacionamento";
         PreparedStatement ps;
         try {
             ps=super.getPreparedStatement(sql);
@@ -155,9 +166,11 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
                         rs.getString("email"),
                         rs.getString("logradouro"),
                         rs.getInt("numero"),
-                        rs.getString("bairro"),
                         rs.getString("bloco"),
-                        rs.getString("CEP")
+                        rs.getString("bairro"),
+                        rs.getString("CEP"),
+                        rs.getString("cidade"),
+                        rs.getString("UF")
                      
                 ));
                
@@ -166,8 +179,10 @@ public class EstacionamentoRepositorio extends DaoUtil implements IEstacionament
              ps.close(); // Prepared do banco
           
             
-        } catch (ClassNotFoundException | SQLException ex) {
-            Logger.getLogger(ClienteRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SQLException ex) {
+            Logger.getLogger(EstacionamentoRepositorio.class.getName()).log(Level.SEVERE, null, ex);
         }
       return listaEstacionamento;  
     }

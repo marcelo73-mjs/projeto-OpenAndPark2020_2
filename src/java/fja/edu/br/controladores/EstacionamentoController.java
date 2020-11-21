@@ -51,7 +51,7 @@ public class EstacionamentoController {
     }
         public String finalizaDelecao(){
          estRepositorio.deletarPorId(estacionamento.getIdestacionamento());
-         estRepositorio =null;
+         listaEstacionamento=null;
          return "reflesh"; //O REFRESH É JUSTAMENTE PARA RETORNAR A MESMA PAGINA ATUALIZANDO A ACAO DELETAR
     } 
 

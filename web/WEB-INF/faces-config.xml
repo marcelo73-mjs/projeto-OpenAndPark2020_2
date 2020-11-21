@@ -94,4 +94,11 @@
         <managed-bean-class>fja.edu.br.infraestrutura.repositorio.LoginRepositorio</managed-bean-class>
         <managed-bean-scope>session</managed-bean-scope>
     </managed-bean>
+    <navigation-rule>
+        <from-view-id>/loginAdminIncluir.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>vaiParaListagem</from-outcome>
+            <to-view-id>/EstacionamentoListagem.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>
