@@ -1,0 +1,104 @@
+root{
+    display : block;
+}
+/* *{margin: 0; padding: 0} Para zerar as configurações do browser*/
+.tela{width: 100%;background-color:black; }
+.home{ min-height: 100%; width: 100%;animation: mudarfoto 20s infinite; 
+       background-image: url('img/logomarca.jpeg');background-repeat: no-repeat; 
+}
+
+.titulo{ width: 100%;font-size:4em; color:#CDCDB4;  height:1em;  font-weight:800; 
+         text-align:center; margin-bottom:0;margin-top:0em;padding-left:0em;
+}
+
+.titulo2{width: 100%; color:#CDCDB4; font-size:2rem; font-weight:700;text-align: center; 
+
+} 
+.p{padding-top: 3em; padding-bottom:0.5em;padding-left:0.5em; margin-bottom:3em; font-size:0.7em; 
+   font-weight:800; line-height:1.8rem;color:#CDCDB4; }
+.botoes{ padding-left:400px;}
+*/*CORES*/
+.verde{
+    background-color: #2E8B57;
+    font-family:serif;
+    font-size: 14px;
+}
+.cinza-forte{   
+    background-color:  #B5B5B5;
+    font-family:serif;
+    font-size: 14px;
+
+}
+.cinza-fraco{   
+    background-color:#CFCFCF;
+    font-family:serif;                             	
+    font-size: 14px;
+
+}
+
+.azulturqueza{
+    background-color:#48D1CC;
+    font-family:serif;
+    font-size: 14px;
+}
+
+.azul{
+    background-color: burlywood;
+    font-family: serif;
+    font-size: 14px;
+}
+
+
+/*HOME - ANIMATION*/
+@keyframes mudarfoto{
+    30%{background-image: url('img/logomarca.jpeg');}
+    30%{background-image: url('img/estacionamento13.jpg');}
+    40%{background-image: url('img/localizandoestacionamento1.jpg');}
+    100%{background-image: url('img/logomarca.jpeg');}
+}
+/*LOGO*/
+.nav{ height:100%; background-color: transparent;} 
+.logo-img{margin-left:29px;}
+.menu{font-size:1em;  color:#CDCDB4;} 
+
+.menu:hover{background-color: red; color:white; } /*background-color: transparent;*/
+.rodape{width:100%; background-color:red; color:#CDCDB4; font-size:30px; text-align: center; 
+        height:8em;padding-bottom:0; padding-top:3em;  font-weight:800;margin-bottom:-2em; margin-top:3em;}
+
+
+/*PÁGINA LISTAGEM*/
+.titulo-listagem{font-weight:700; background-color: whitesmoke; color: green;}
+.acao{font-size: 1.1em; font-weight:700;color:whitesmoke;}
+/*INFORMACÕES*/
+.titulo{ width: 100%;font-size:4em; color:#CDCDB4;  height:1em;font-weight:800; 
+         text-align:center; margin-bottom:0;margin-top:0em;padding-left:0em;
+}
+
+.titulo4{font-size:2em; text-align:center; font-weight:200;color:#CDCDB4; margin-bottom:0;text-transform: uppercase;
+   text-justify: initial; }
+.conteudo{width: 50%; font-size: 1.3em;font-weight:700; font-family: sans-serif;background-color:
+#CDCDB4; color:black; padding-left: 0.5em;padding-right: 0.5em;padding-top:0.1em;
+          padding-bottom:2px; }
+
+
+.conteudo1{ width: 50%; font-size: 1.3em;font-weight:700; font-family: sans-serif;background-color:
+#CDCDB4; color:black; padding-left: 0.5em;padding-right: 0.5em;padding-top:0.1em;
+          padding-bottom:2px; }
+
+.tela2{width: 100%;background-color:black; } 
+.menu2{font-size: 2em;}
+.titulo3{font-size:3em;background-color: whitesmoke; color:white;  height:1em;padding-top:0.5em; padding-bottom: 1.7em; 
+         text-align:center; margin-bottom:1.5em;
+}
+
+
+
+
+
+
+
+
+
+
+
+
